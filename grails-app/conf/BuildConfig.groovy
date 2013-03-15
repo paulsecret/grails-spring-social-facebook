@@ -43,7 +43,7 @@ grails.project.dependency.resolution = {
     grailsRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
   }
   dependencies {
-    def springSocialVersion = "1.0.1.RELEASE"
+    def springSocialVersion = "1.1.0.M2"
     compile("org.springframework.social:spring-social-facebook:${springSocialVersion}") { transitive = false }
 
     compile("org.codehaus.jackson:jackson-mapper-asl:1.9.2")
@@ -57,7 +57,6 @@ grails.project.dependency.resolution = {
     */
     if (grailsVersion.startsWith('2')) {
       test(":code-coverage:1.2.5") { export = false }
-      test("org.spockframework:spock:0.6-groovy-1.8-SNAPSHOT") { export = false }
       build(":release:2.0.0") { export = false }
       build(":rest-client-builder:1.0.2") { export = false }
     }
