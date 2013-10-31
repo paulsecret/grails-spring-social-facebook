@@ -36,29 +36,26 @@ grails.project.dependency.resolution = {
     mavenRepo "http://maven.springframework.org/release"
     mavenRepo "http://maven.springframework.org/snapshot"
     mavenRepo "http://maven.springframework.org/milestone"
-
     mavenRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
-    grailsRepo "http://grails.org/plugins"
-
-    grailsRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
   }
   dependencies {
-    def springSocialVersion = "1.1.0.M2"
+    def springSocialVersion = "1.1.0.M4"
     compile("org.springframework.social:spring-social-facebook:${springSocialVersion}") { transitive = false }
 
     compile("org.codehaus.jackson:jackson-mapper-asl:1.9.2")
   }
   plugins {
-    compile(":springsocial-core:0.1.33-SNAPSHOT")
 
+    compile ":spring-social-core:0.1.34-SNAPSHOT"
     /*
     This validation is for prevent load the following plugins in previous Grails versions.
     I some Grails versions from 1.3.* the 'export = false' does not work. For Grails 2.* works properly
     */
     if (grailsVersion.startsWith('2')) {
-      test(":code-coverage:1.2.5") { export = false }
-      build(":release:2.0.0") { export = false }
-      build(":rest-client-builder:1.0.2") { export = false }
+        test(":code-coverage:1.2.5") { export = false }
+        build ":release:3.0.1", ':rest-client-builder:1.0.3', {
+            export = false
+        }
     }
   }
 }
