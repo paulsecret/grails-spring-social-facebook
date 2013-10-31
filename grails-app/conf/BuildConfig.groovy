@@ -37,11 +37,11 @@ grails.project.dependency.resolution = {
     mavenRepo "http://maven.springframework.org/snapshot"
     mavenRepo "http://maven.springframework.org/milestone"
     mavenRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
+    mavenRepo "http://repo.dev.outfittery.de/plugins-snapshot-local"
   }
   dependencies {
     def springSocialVersion = "1.1.0.M4"
     compile("org.springframework.social:spring-social-facebook:${springSocialVersion}") { transitive = false }
-
     compile("org.codehaus.jackson:jackson-mapper-asl:1.9.2")
   }
   plugins {
