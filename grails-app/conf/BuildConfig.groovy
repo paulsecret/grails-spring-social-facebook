@@ -16,48 +16,44 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+
 grails.project.dependency.resolution = {
-  // inherit Grails' default dependencies
-  inherits("global") {
-    // uncomment to disable ehcache
-    // excludes 'ehcache'
-  }
-  log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
-  repositories {
-    grailsPlugins()
-    grailsHome()
-    grailsCentral()
+    // inherit Grails' default dependencies
+    inherits("global") {
+        // uncomment to disable ehcache
+        // excludes 'ehcache'
+    }
 
-    // uncomment the below to enable remote dependency resolution
-    // from public Maven repositories
-    mavenLocal()
-    mavenCentral()
+    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
 
-    mavenRepo "http://maven.springframework.org/release"
-    mavenRepo "http://maven.springframework.org/snapshot"
-    mavenRepo "http://maven.springframework.org/milestone"
-    mavenRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
-    mavenRepo "http://repo.dev.outfittery.de/plugins-snapshot-local"
-  }
-  dependencies {
-    def springSocialVersion = "1.1.0.M4"
-    compile("org.springframework.social:spring-social-facebook:${springSocialVersion}") { transitive = false }
-    compile("org.codehaus.jackson:jackson-mapper-asl:1.9.2")
-  }
-  plugins {
+    repositories {
+        grailsPlugins()
+        grailsHome()
+        grailsCentral()
 
-    compile ":spring-social-core:0.1.34-SNAPSHOT"
-    /*
-    This validation is for prevent load the following plugins in previous Grails versions.
-    I some Grails versions from 1.3.* the 'export = false' does not work. For Grails 2.* works properly
-    */
-    if (grailsVersion.startsWith('2')) {
-        test(":code-coverage:1.2.5") { export = false }
+        // uncomment the below to enable remote dependency resolution
+        // from public Maven repositories
+        mavenLocal()
+        mavenCentral()
+
+        mavenRepo "http://maven.springframework.org/release"
+        mavenRepo "http://maven.springframework.org/snapshot"
+        mavenRepo "http://maven.springframework.org/milestone"
+        mavenRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
+        mavenRepo ("http://repo.dev.outfittery.de/plugins-snapshot-local") { updatePolicy = 'always'}
+    }
+
+    dependencies {
+        compile "org.springframework.social:spring-social-facebook:2.0.0.M1"
+    }
+
+    plugins {
+        compile ":spring-social-core:0.2.0-SNAPSHOT"
+
         build ":release:3.0.1", ':rest-client-builder:1.0.3', {
             export = false
         }
     }
-  }
 }
 
 grails.project.repos.clickonero.url = "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
@@ -67,9 +63,11 @@ grails.release.scm.enabled = false
 grails.project.repos.default = "clickonero"
 
 coverage {
-  exclusions = [
-      "DefaultSpringSocialConfig*",
-      "SpringSocialCoreDefaultConfig*"
-  ]
-  enabledByDefault = true
+    exclusions = [
+            "DefaultSpringSocialConfig*",
+            "SpringSocialCoreDefaultConfig*"
+    ]
+    enabledByDefault = true
 }
+
+//grails.plugin.location.'springsocial-core' = "../grails-spring-social-core"

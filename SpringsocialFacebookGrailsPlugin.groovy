@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 class SpringsocialFacebookGrailsPlugin {
-  def version = "0.1.34-SNAPSHOT"
-  def grailsVersion = "1.3 > *"
+  def version = "0.2.0-SNAPSHOT"
+  def grailsVersion = "2.3.9 > *"
   def dependsOn = [:]
   // resources that are excluded from plugin packaging
   def pluginExcludes = [
