@@ -44,11 +44,11 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile "org.springframework.social:spring-social-facebook:2.0.0.RELEASE", { transitive = false }
+        compile "org.springframework.social:spring-social-facebook:2.0.1.RELEASE", { transitive = false }
     }
 
     plugins {
-        compile ":spring-social-core:0.2.0-SNAPSHOT"
+        compile ":spring-social-core:0.2.0"
 
         build ":release:3.0.1", ':rest-client-builder:1.0.3', {
             export = false
