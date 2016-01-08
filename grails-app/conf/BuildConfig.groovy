@@ -40,6 +40,7 @@ grails.project.dependency.resolution = {
         mavenRepo "http://maven.springframework.org/snapshot"
         mavenRepo "http://maven.springframework.org/milestone"
         mavenRepo "http://repo.clickonero.com/nexus/content/repositories/snapshots/"
+        mavenRepo "http://repo.dev.outfittery.de/plugins-release-local/"
         mavenRepo ("http://repo.dev.outfittery.de/plugins-snapshot-local") { updatePolicy = 'always'}
     }
 
