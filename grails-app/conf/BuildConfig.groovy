@@ -44,7 +44,7 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile "org.springframework.social:spring-social-facebook:2.0.1.RELEASE", { transitive = false }
+        compile "org.springframework.social:spring-social-facebook:2.0.3.RELEASE", { transitive = false }
     }
 
     plugins {
